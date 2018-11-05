@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>TensorFlow.js Speech Commands Model Demo</title>
+    <style>
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        .container {
+            position: relative;
+            width: 50%;
+            height: 300px;
+        }
+
+        .rectangle {
+            position: absolute;
+            left: 40%;
+            top: 10%;
+            transition:all 1s linear;
+            width: 200px;
+            height: 200px;
+            backgruond-color: #eee;
+            border: 1px solid;
+        }
+
+        .up {
+            top: 0;
+        }
+
+        .down {
+            top: 100%
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 100%;
+        }
+
+        #collect-words {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+<button id="start">Listen</button>
+<button id="stop" style="overflow: hidden">Stop</button>
+<br/>
+<input id="newWord" type="text">
+<button id="teach">Teach New</button>
+<button id="teachSync">Teach Sync</button>
+<div id="collect-words"></div>
+<br/>
+<div class="container">
+
+    <div id="rectangle" class="rectangle"></div>
+
+</div>
+
+<script src="indexRework.js"></script>
+</body>
+
+</html>
