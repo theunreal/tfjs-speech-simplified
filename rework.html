@@ -25,31 +25,25 @@
             transition:all 1s linear;
             width: 200px;
             height: 200px;
-            backgruond-color: #eee;
+            backgruond-color: #bdbdbd;
             border: 1px solid;
         }
 
-        .up {
-            top: 0;
-        }
+        .up {top: 0;}
 
-        .down {
-            top: 100%
-        }
+        .down {top: 100%}
 
-        .left {
-            left: 0;
-        }
+        .left {left: 0;}
 
-        .right {
-            left: 100%;
-        }
+        .right {left: 100%;}
 
-        #collect-words {
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: column;
-        }
+        .red {background-color: red; }
+
+        .blue {background-color: blue; }
+
+        .green { background-color: green; }
+
+
 
 
     </style>
@@ -58,14 +52,17 @@
 
 <body>
 
-<button id="start">Listen</button>
-<button id="stop" style="overflow: hidden">Stop</button>
-<br/>
-<input id="newWord" type="text">
-<button id="teach">Teach New</button>
-<button id="teachSync">Teach Sync</button>
-<div id="collect-words"></div>
-<br/>
+<section>
+    <button id="start">Listen</button>
+    <button id="stop" hidden>Stop</button>
+</section>
+
+<secton>
+    <input id="newWord" type="text">
+    <button id="teach">Record an example</button>
+    <button id="teachSync">Teach</button>
+</secton>
+
 <div class="container">
 
     <div id="rectangle" class="rectangle"></div>

@@ -1,4 +1,3 @@
-import {showWords, plotPredictions} from "./uiRework";
 import * as SpeechCommands from "../src";
 
 const startButton = document.getElementById('start');
@@ -7,12 +6,14 @@ const teachNewButton = document.getElementById('teach');
 const teachSyncButton = document.getElementById('teachSync');
 const learnWordsInput = document.getElementById('newWord');
 
+const rectangle = document.getElementById('rectangle');
+
 const epochs = 40;
 
 let recognizer;
 let transferRecognizer;
 
-const XFER_MODEL_NAME = 'xfer-model';
+const XFER_MODEL_NAME = 'colors';
 
 (async function() {
     console.log('Creating recognizer...');
@@ -92,10 +93,13 @@ teachNewButton.addEventListener('click', async() => {
     if (!transferRecognizer) {
         transferRecognizer = recognizer.createTransfer(XFER_MODEL_NAME);
     }
+
+    teachNewButton.disabled = true;
     const spectrogram = await transferRecognizer.collectExample(transferWord);
     const exampleCounts = transferRecognizer.countExamples();
     console.log(`${transferWord} (${exampleCounts[transferWord]})`);
     console.log(`Collect one sample of word "${transferWord}"`);
+    teachNewButton.disabled = false;
 });
 
 teachSyncButton.addEventListener("click", async() => {
@@ -126,4 +130,22 @@ teachSyncButton.addEventListener("click", async() => {
 
 });
 
+const showWords = (words) => {
+    console.log(words);
+};
+
+const plotPredictions = (canvas, candidateWords, probabilities) => {
+    let wordsAndProbs = [];
+    for (let i = 0; i < candidateWords.length; ++i) {
+        wordsAndProbs.push([candidateWords[i], probabilities[i]]);
+    }
+    wordsAndProbs = wordsAndProbs.sort((a, b) => (b[1] - a[1]));
+
+    const topWord = wordsAndProbs[0][0];
+
+    const currClass = rectangle.classList.item(1);
+    rectangle.classList.remove(currClass);
+    rectangle.classList.add(topWord);
+    console.log(topWord);
+}
 
