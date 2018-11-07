@@ -9,7 +9,6 @@ dist/
 .vscode/
 *.tgz
 .cache
-dist/**
 bazel-*
 
 *.pyc
