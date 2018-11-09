@@ -77,7 +77,7 @@ stopButton.addEventListener('click', () => {
         .then(() => {
             startButton.hidden = false;
             stopButton.hidden = true;
-            teachSection.hidden = false
+            teachSection.hidden = false;
             console.log('Streaming recognition stopped.');
         })
         .catch(err => {
