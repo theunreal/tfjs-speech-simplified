@@ -5,7 +5,7 @@ const stopButton = document.getElementById('stop');
 const teachNewButton = document.getElementById('teach');
 const teachSyncButton = document.getElementById('teachSync');
 const learnWordsInput = document.getElementById('newWord');
-
+const teachSection = document.getElementById('teachSection');
 const rectangle = document.getElementById('rectangle');
 
 const epochs = 40;
@@ -55,11 +55,13 @@ startButton.addEventListener('click', () => {
             },
             {
                 includeSpectrogram: true,
-                probabilityThreshold: 0.75
+                probabilityThreshold: 0.7
             })
         .then(() => {
             startButton.hidden = true;
             stopButton.hidden = false;
+            teachSection.hidden = true;
+
             console.log('Streaming recognition started.');
         })
         .catch(err => {
@@ -75,6 +77,7 @@ stopButton.addEventListener('click', () => {
         .then(() => {
             startButton.hidden = false;
             stopButton.hidden = true;
+            teachSection.hidden = false
             console.log('Streaming recognition stopped.');
         })
         .catch(err => {
@@ -147,5 +150,4 @@ const plotPredictions = (canvas, candidateWords, probabilities) => {
     rectangle.classList.remove(currClass);
     rectangle.classList.add(topWord);
     console.log(topWord);
-}
-
+};
