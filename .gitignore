@@ -9,6 +9,5 @@ yarn-error.log
 *.tgz
 .cache
 bazel-*
-dist/
 *.pyc
 "dist/"
