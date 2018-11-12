@@ -2,9 +2,6 @@
 
 ## How to build & run
 
-### Just running:
-1. Run the index.html file in the `dist` folder
-
 ### Build and run:
 1. Clone the project
 2. run `npm install` in the project root folder
