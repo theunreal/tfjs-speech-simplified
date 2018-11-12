@@ -17,7 +17,8 @@
     "watch": "parcel index.html --no-hmr --open",
     "build": "parcel build index.html --no-minify --public-url ./",
     "lint": "eslint .",
-    "link-local": "yalc link @tensorflow-models/speech-commands"
+    "link-local": "yalc link @tensorflow-models/speech-commands",
+    "deploy": "npm run build && git subtree push --prefix dist origin gh-pages"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
